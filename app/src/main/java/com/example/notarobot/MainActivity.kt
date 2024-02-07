@@ -7,7 +7,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -26,13 +25,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.notarobot.R.drawable
+import com.example.notarobot.models.TestImage
 import com.example.notarobot.ui.theme.NotARobotTheme
 import java.util.Random
-import com.example.notarobot.models.TestImage
-import com.example.notarobot.R.*
 
 val dogOne = TestImage(false, drawable.dog1)
 val dogTwo = TestImage(false, drawable.dog2)
@@ -92,7 +90,7 @@ fun RobotTestColumn(list: List<TestImage>){
         .padding(start = 0.dp, top = 100.dp, end = 0.dp, bottom = 0.dp)) {
         LazyColumn() {
             items(6) { index ->
-                var message = ""
+                var message: String
                 message = if (list[index].isCat) {
                     "Hurray, You're not a Robot!"
                 } else {
